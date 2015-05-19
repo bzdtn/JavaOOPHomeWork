@@ -8,7 +8,7 @@ import java.util.*;
  * @author Alexander Tyshchenko.
  */
 public class StudentList {
-	private int listMaxSize = 5;
+	private int listMaxSize = 5; //текущий размер массива
 	private Student[] list = new Student[5];
 	private int p = 0;
 	
@@ -60,14 +60,15 @@ public class StudentList {
     public LinkedList<Integer> findBirth(LocalDate date) {
         LinkedList<Integer> finds = new LinkedList<Integer>();
         for (int i = 0; i < p; i++) {
-            if (list[i].getBirth().equals(date));
+            if (list[i].getBirth().equals(date)) {
                 finds.add(i);
+            }
         }
         return finds;
     }
 
     //try to dell from the list by id
-    //returns
+    //returns true if it is possible
 	public boolean dell(int id){
 		if (id >= this.p) {
 			return false;

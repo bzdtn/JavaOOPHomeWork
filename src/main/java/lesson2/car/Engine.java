@@ -3,7 +3,7 @@ package lesson2.car;
 public class Engine {
     private double mileage;
     private boolean started;
-    private double capacity;
+    private double capacity; //объем двигателя
 
     public Engine(double mileage, double capacity) {
         this.mileage = mileage;
@@ -14,6 +14,7 @@ public class Engine {
         return mileage;
     }
 
+    //расход топлива (л на 100 км) в зависимости от объема двигателя
     public double getConsumption(){
         if (this.capacity < 1.1) {
             return 5.0;

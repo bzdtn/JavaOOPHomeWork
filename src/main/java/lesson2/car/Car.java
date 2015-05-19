@@ -9,6 +9,7 @@ public class Car {
         this(name, 0, 1.6);
     }
 
+    //переопределен конструктор: добавлен объем двигателя
     public Car(String name, double mileage, double capacity) {
         this.name = name;
         engine = new Engine(mileage, capacity);
@@ -27,6 +28,7 @@ public class Car {
         return engine.getMileage();
     }
 
+    //потраченное топливо = расход * пробег / 100
     public double getConsumption(){
         return engine.getConsumption() * engine.getMileage() / 100.0;
     }

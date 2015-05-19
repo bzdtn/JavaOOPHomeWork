@@ -1,30 +1,27 @@
 package lesson2.phone;
 
-import com.sun.istack.internal.Nullable;
-
 import java.util.LinkedList;
-import java.util.List;
 
 public abstract class Phone {
 
     private static LinkedList<Phone> list;
     static {
-        Phone.list = new LinkedList<Phone>();
+        list = new LinkedList<Phone>();
     }
 
 	protected boolean touch;
 	protected boolean hasWifi;
 	protected int screenSize;
 
-	private int smsCounter = 0;
-	private int callCounter = 0;
+    private String number;
 
-    protected String phoneNumber;
-	
-	public Phone() {
-//		System.out.println("Phone constructor");
-//        Phone.list.add(this);
-	}
+    private int callCounter = 0;
+    private int smsCounter = 0;
+
+    public Phone() {
+        System.out.println("Phone constructor");
+        list.add(this);
+    }
 	
 	public boolean isTouch() {
 		return touch;
@@ -38,58 +35,89 @@ public abstract class Phone {
 		return screenSize;
 	}
 
-    public void call(String number) {
-		System.out.println("Phone class is calling " + number);
-	}
+    public final int getCallCounter(){
+        return this.callCounter;
+    }
 
-    public void call1(String number) {
-        System.out.println("Phone class is calling " + number);
+    public final int getSmsCounterCounter(){
+        return this.smsCounter;
+    }
+
+    public String getNumber() {
+        return this.number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
+    public final void call(String number) {
+        this.callCounter++;
+        this.makeCall(number);
         Phone phone = Phone.find(number);
         if (phone == null){
             System.out.println("Wrong phone number");
         } else {
             phone.answer();
         }
-    }
-	public abstract void sendSMS(String number, String message);
-
-	public int getSmsCounter() {
-		return smsCounter;
 	}
 
-	public int getCallCounter() {
-		return callCounter;
-	}
-
-    public final String getPhoneNumber() {
-        return phoneNumber;
+	protected void makeCall(String number){
+        System.out.println("Phone class is calling " + number);
     }
 
-    public final void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+	public final void sendSMS(String number, String message){
+        this.smsCounter++;
+        this.sendOutSMS(number, message);
     }
 
-    @Nullable
-    public static Phone find(String number){
-        for (Phone p: Phone.list){
-            if (p.getPhoneNumber().equalsIgnoreCase(number)){
-                return p;
-            }
-        }
-        return null;
-    }
+    protected abstract void sendOutSMS(String number, String message);
 
     public void answer(){
         System.out.println("Pronto!!!");
     }
 
-	public final void callC(String number){
-		this.callCounter++;
-		this.call(number);
+    public static Phone find(String number){
+        for (Phone p: Phone.list){
+            if (number.equalsIgnoreCase(p.getNumber())){
+                return p;
+            }
+        }
+        return null;
+    }
+}
+
+
+/*
+package lesson2.phone;
+
+public abstract class Phone {
+
+	protected boolean touch;
+	protected boolean hasWifi;
+	protected int screenSize;
+
+    public Phone() {
+        System.out.println("Phone constructor");
+    }
+
+	public boolean isTouch() {
+		return touch;
 	}
 
-	public final void sendSMSC(String number, String message){
-		this.smsCounter++;
-		this.sendSMS(number, message);
+	public boolean isHasWifi() {
+		return hasWifi;
 	}
+
+	public int getScreenSize() {
+		return screenSize;
+	}
+
+    public void call(String number) {
+		System.out.println("Phone class is calling " + number);
+	}
+
+	public abstract void sendSMS(String number, String message);
 }
+
+ */

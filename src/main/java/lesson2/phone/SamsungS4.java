@@ -1,8 +1,5 @@
 package lesson2.phone;
 
-/**
- * Created by vbzd on 18.05.2015.
- */
 public class SamsungS4 extends Phone {
 
     public SamsungS4(){
@@ -13,7 +10,7 @@ public class SamsungS4 extends Phone {
     }
 
     @Override
-    public void sendSMS(String number, String message) {
+    protected void sendOutSMS(String number, String message) {
         System.out.println("SamsungS4 class is sending sms " + "Hello " + message + " to " + number);
     }
 }
