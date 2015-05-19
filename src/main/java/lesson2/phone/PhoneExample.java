@@ -3,8 +3,7 @@ package lesson2.phone;
 public class PhoneExample {
 
 	public static void main(String[] args) {
-		// Phone p = new Phone();
-		
+
 		Nokia3310 nokia = new Nokia3310();
 		System.out.println("Nokia3310 screent size: " + nokia.getScreenSize());
 		nokia.call("123-45-67");

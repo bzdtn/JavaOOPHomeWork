@@ -50,8 +50,9 @@ public class StudentList {
 	public LinkedList<Integer> findSurname(String surname) {
         LinkedList<Integer> finds = new LinkedList<Integer>();
 		for (int i = 0; i < p; i++) {
-			if (list[i].getSurname().equalsIgnoreCase(surname))
-				finds.add(i);
+			if (list[i].getSurname().equalsIgnoreCase(surname)) {
+                finds.add(i);
+            }
 		}
 		return finds;
 	}
@@ -73,9 +74,10 @@ public class StudentList {
 		if (id >= this.p) {
 			return false;
 		} else {
-            for (int i = id; i < this.p - 1; i++) {
-                this.list[i] = this.list[i + 1];
-            }
+//            for (int i = id; i < this.p - 1; i++) {
+//                this.list[i] = this.list[i + 1];
+//            }
+            System.arraycopy(this.list, id + 1, this.list, id, this.p - id - 1);
             this.list[this.p - 1] = null;
             this.p--;
             return true;

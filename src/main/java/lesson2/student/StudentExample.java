@@ -30,7 +30,7 @@ public class StudentExample {
         System.out.println("---find by Surname");
 		LinkedList<Integer> surnameIds = list.findSurname("Sirenko");
 		for (int id: surnameIds){
-			System.out.println(list.get(id).getName().toString());
+			System.out.println(list.get(id).getName());
 		}
 //delete by id
         System.out.println("---delete by id (id=1)");
@@ -62,21 +62,21 @@ public class StudentExample {
         System.out.println("---find by surname \"Stepurenko\": \"Dima\", \"Jora\"");
 		surnameIds = list.findSurname("Stepurenko");
 		for (int id: surnameIds){
-			System.out.println(list.get(id).getName().toString());
+			System.out.println(list.get(id).getName());
 		}
 		System.out.println(surnameIds);
 //find by surname non-existent
         System.out.println("---find by surname non-existent");
 		surnameIds = list.findSurname("S");
         for (int id: surnameIds){
-            System.out.println(list.get(id).getName().toString());
+            System.out.println(list.get(id).getName());
         }
 		System.out.println(surnameIds);
 //find by birthday non-existent
-        System.out.println("---find by surname non-existent");
-        surnameIds = list.findBirth(LocalDate.of(1986, 01, 01));
+        System.out.println("---find by birthday");
+        surnameIds = list.findBirth(LocalDate.of(1986, 1, 1));
         for (int id: surnameIds){
-            System.out.println(list.get(id).getName().toString());
+            System.out.println(list.get(id).getName());
         }
         System.out.println(surnameIds);
 

@@ -11,13 +11,14 @@ public class Nokia3310 extends Phone {
 	}
 	
 	@Override
-	protected void makeCall(String number) {
-		super.makeCall(number);
+	public void call(String number) {
+		super.call(number);
 		System.out.println("Nokia3310 class is calling " + number);
 	}
 	
 	@Override
-	protected void sendOutSMS(String number, String message) {
+	public void sendSMS(String number, String message) {
+		super.sendSMS(number, message);
 		System.out.println("Nokia3310 class is sending sms " + message + " to " + number);	
 	}
 }

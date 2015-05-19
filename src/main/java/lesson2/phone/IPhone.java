@@ -11,12 +11,14 @@ public class IPhone extends Phone {
 	}
 	
 	@Override
-    protected final void makeCall(String number) {
+    public void call(String number) {
+		super.call(number);
 		System.out.println("IPhone class is calling " + number);
 	}
 	
 	@Override
-	protected void sendOutSMS(String number, String message) {
+	public void sendSMS(String number, String message) {
+        super.sendSMS(number, message);
 		System.out.println("IPhone class is sending sms " + message + " to " + number);	
 	}
 }

@@ -10,7 +10,8 @@ public class SamsungS4 extends Phone {
     }
 
     @Override
-    protected void sendOutSMS(String number, String message) {
+    public void sendSMS(String number, String message) {
+        super.sendSMS(number, message);
         System.out.println("SamsungS4 class is sending sms " + "Hello " + message + " to " + number);
     }
 }
