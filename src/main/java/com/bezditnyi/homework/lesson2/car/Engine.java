@@ -1,4 +1,4 @@
-package lesson2.car;
+package com.bezditnyi.homework.lesson2.car;
 
 public class Engine {
     private double mileage;

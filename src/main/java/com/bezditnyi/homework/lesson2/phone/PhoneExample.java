@@ -1,4 +1,4 @@
-package lesson2.phone;
+package com.bezditnyi.homework.lesson2.phone;
 
 public class PhoneExample {
 
@@ -19,6 +19,8 @@ public class PhoneExample {
 		IPhone iphone = new IPhone();
 		System.out.println("IPhone screent size: " + iphone.getScreenSize());
 		iphone.call("123-45-67");
+        iphone.call("123-45-67");
+        iphone.call("123-45-67");
 		iphone.sendSMS("567-78-89", "text message");
 		
 		System.out.println("----------------------------------");

@@ -1,4 +1,4 @@
-package lesson2.phone;
+package com.bezditnyi.homework.lesson2.phone;
 
 public class Nokia3310 extends Phone {
 	

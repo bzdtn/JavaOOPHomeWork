@@ -1,4 +1,4 @@
-package lesson2.student;
+package com.bezditnyi.homework.lesson2.student;
 
 import java.time.LocalDate;
 import java.util.Date;

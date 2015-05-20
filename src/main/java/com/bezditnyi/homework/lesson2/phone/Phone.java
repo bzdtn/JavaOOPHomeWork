@@ -1,4 +1,4 @@
-package lesson2.phone;
+package com.bezditnyi.homework.lesson2.phone;
 
 import java.util.LinkedList;
 
@@ -82,7 +82,7 @@ public abstract class Phone {
 
 
 /*
-package lesson2.phone;
+package com.bezditnyi.homework.lesson2.phone;
 
 public abstract class Phone {
 
@@ -114,7 +114,7 @@ public abstract class Phone {
 }
 
 
-package lesson2.phone;
+package com.bezditnyi.homework.lesson2.phone;
 
 import java.util.LinkedList;
 
