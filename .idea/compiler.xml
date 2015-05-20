@@ -19,9 +19,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="JavaOOPHomeWork" target="1.5" />
-      <module name="Lesson1" target="1.5" />
-      <module name="Lesson2" target="1.5" />
+      <module name="JavaOOPHomeWork" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
