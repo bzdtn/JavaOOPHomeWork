@@ -1,4 +1,4 @@
-package com.bezditnyi.homework.lesson4.Human;
+package com.bezditnyi.homework.lesson4.human;
 
 /**
  * @author Alexander Tyshchenko.
@@ -17,7 +17,7 @@ public class Human {
 
     @Override
     public String toString() {
-        return "Human{" +
+        return "human{" +
                 "age=" + age +
                 '}';
     }

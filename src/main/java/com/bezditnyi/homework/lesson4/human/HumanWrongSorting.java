@@ -1,4 +1,4 @@
-package com.bezditnyi.homework.lesson4.Human;
+package com.bezditnyi.homework.lesson4.human;
 
 import java.util.Arrays;
 
@@ -10,7 +10,7 @@ public class HumanWrongSorting {
         Human[] humans = {
                 new Human(40),
                 new Human(10),
-                new Human(2)
+                new Human(20)
         };
 
         Arrays.sort(humans); // ClassCastException

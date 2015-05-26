@@ -1,4 +1,4 @@
-package com.bezditnyi.homework.lesson4.Human;
+package com.bezditnyi.homework.lesson4.human;
 
 import java.util.Arrays;
 
