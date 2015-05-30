@@ -13,7 +13,7 @@ public class Replacer {
     public static void main(String...args){
         File file = new File(Constants.FILE_PATH_LESSON_5 + "/Lesson5TestFile.txt");
         byte[] data = new byte[(int) file.length()];
-        try (FileInputStream is = new FileInputStream(file)){
+        try (FileInputStream is = new FileInputStream(file)) {
             // reading whole file, it is bad if file is huge
             is.read(data);
         } catch (IOException e) {
@@ -21,8 +21,7 @@ public class Replacer {
         }
         String s = new String(data);
         s = s.replaceAll("Hello", "1234");
-
-        try (FileOutputStream os = new FileOutputStream(file)){
+        try (FileOutputStream os = new FileOutputStream(file)) {
             os.write(s.getBytes());
         } catch (IOException e) {
             e.printStackTrace();

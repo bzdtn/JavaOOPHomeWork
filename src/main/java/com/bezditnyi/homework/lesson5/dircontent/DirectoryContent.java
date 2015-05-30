@@ -18,15 +18,19 @@ import java.util.Date;
  */
 public class DirectoryContent {
 
-    public static void dirContent(String srcDir, String infoFileDir) throws IOException{
+    public static void dirContent (String srcDir, String infoFileDir)
+            throws IOException
+    {
         File dir = new File(srcDir);
         if (dir.listFiles() == null){
             throw new IOException("wrong directory name");
         }
         //result info file will have name like "info2015-05-28_10-32-55.txt"
+        // try-with-resources to autoclose, exceptions will be caught in caller
         try (FileWriter infoFile = new FileWriter(infoFileDir + "/info" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss")) + ".txt")){
             //System.out.println(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss")));
             for (File file: dir.listFiles()) {
+                //
                 if (file.isDirectory()) {
                     continue;
                 }
@@ -41,12 +45,9 @@ public class DirectoryContent {
 
     public static void main (String ... args) {
         try{
-            dirContent(Constants.FILE_PATH_LESSON_5 + "/src1", Constants.FILE_PATH_LESSON_5);
+            dirContent(Constants.FILE_PATH_LESSON_5 + "/src", Constants.FILE_PATH_LESSON_5);
         } catch (IOException e) {
             e.printStackTrace();
         }
-//        catch (NullPointerException e) {
-//            e.printStackTrace();
-//        }
     }
 }

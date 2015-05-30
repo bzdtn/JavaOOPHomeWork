@@ -16,8 +16,9 @@ public class FileSearcher {
         File[] files = dir.listFiles(new MyFileFilter(ext));
         //  ArrayList is better because it allocates exactly enough memory to keep file names
         List<String> listFiles = new ArrayList<>(files.length);
+        // "/" added to separate dir name from file name
         for (File file: files){
-            listFiles.add(srcPath + file.getName());
+            listFiles.add(srcPath + "/" + file.getName());
         }
         return listFiles;
     }
@@ -29,10 +30,10 @@ public class FileSearcher {
             files.addAll(Arrays.asList(dir.listFiles(new MyFileFilter(ext))));
         }
         List<String> listFiles = new ArrayList<String>(files.size());
-
-        for (File file: files){
-            listFiles.add(srcPath + file.getName());
-        }
+        files.forEach((f) -> listFiles.add(srcPath + "/" + f.getName()));
+//        for (File file: files){
+//            listFiles.add(srcPath + "/" + file.getName());
+//        }
         return listFiles;
     }
 
@@ -45,17 +46,18 @@ public class FileSearcher {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println("------------------");
+        System.out.println("--- find files with given extensions ---");
         try{
-            String[] exts = {".txt", ".dll"};
+            String[] exts = {".ini", ".dll"};
             List<String> files = findFilesWithExtensions(Constants.FILE_PATH_LESSON_5, exts);
-            for(String fileName: files){
-                System.out.println(fileName);
-            }
+            files.forEach(System.out::println);
+//            for(String fileName: files){
+//                System.out.println(fileName);
+//            }
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println("------------------");
+        System.out.println("--- filter that accepts only files but not directories ----");
         File dir = new File(Constants.FILE_PATH_LESSON_5);
         for (File f: dir.listFiles(new FileOnlyFilter())){
             System.out.println(f.toString());
